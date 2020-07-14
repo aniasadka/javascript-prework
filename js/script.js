@@ -1,7 +1,5 @@
-function playGame() {
-
-
-
+function playGame(playerInput) {
+    clearMessages()
 
     function getMoveName(move) {
         if (move == 1) {
@@ -15,6 +13,8 @@ function playGame() {
         }
 
     }
+
+
 
 
     function displayResult(argPlayerMove, argComputerMove) {
@@ -35,22 +35,23 @@ function playGame() {
 
     let randomNumber = Math.floor(Math.random() * 3 + 1);
     let computerMove = getMoveName(randomNumber);
-    let playerInput = prompt('Wybierz swój ruch! 1: kamień, 2: papier, 3: nożyce.');
     let playerMove = getMoveName(playerInput);
 
     displayResult(playerMove, computerMove);
-
-    paper.addEventListener("click", playGame);
-
-
-    rock.addEventListener("click", playGame);
-
-
-    scissors.addEventListener("click", playGame);
-
-
-
-
-
-
 }
+
+const paper = document.getElementById('paper');
+const rock = document.getElementById('rock');
+const scissors = document.getElementById('scissors');
+
+paper.addEventListener("click", function () {
+    playGame(1);
+});
+
+rock.addEventListener("click", function () {
+    playGame(2);
+});
+
+scissors.addEventListener("click", function () {
+    playGame(3);
+});
